@@ -13,6 +13,7 @@
   "dependencies": {
     "@types/morgan": "^1.9.3",
     "express": "^4.17.1",
+    "express-fastest-validator": "^1.0.7",
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^6.0.13",
     "morgan": "^1.10.0",
