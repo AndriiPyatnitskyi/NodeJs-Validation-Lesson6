@@ -10,7 +10,7 @@ const accountRouter = express.Router();
 accountRouter.get('/api/accounts', permit([Role.ANONYMOUS, Role.USER, Role.ADMIN]), controller.getAccounts);
 accountRouter.get('/api/accounts/:id', permit([Role.ANONYMOUS, Role.USER, Role.ADMIN]), controller.getAccountById);
 accountRouter.post('/api/accounts', validator(accountSchema), permit([Role.ANONYMOUS, Role.USER, Role.ADMIN]), controller.createAccount);
-accountRouter.put('/api/accounts/:id', permit([Role.ANONYMOUS, Role.USER, Role.ADMIN]), controller.updateAccount);
+accountRouter.put('/api/accounts/:id', validator(accountSchema), permit([Role.ANONYMOUS, Role.USER, Role.ADMIN]), controller.updateAccount);
 accountRouter.delete('/api/accounts/:id', permit([Role.ADMIN]), controller.deleteAccount);
 accountRouter.get('/api/accounts/:id/tokens', permit([Role.ANONYMOUS, Role.USER, Role.ADMIN]), controller.getAccountTokensByAccountId);
 accountRouter.post('/api/accounts/:id/tokens', permit([Role.ANONYMOUS, Role.USER, Role.ADMIN]), controller.createAccountToken);
